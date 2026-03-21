@@ -296,7 +296,7 @@ function DateChoosePage({ onNavigate, phoneNumber, selectedLesson, selectedDate,
     // Generate random ID - shorter format
     const randomId = Math.random().toString(36).substr(2, 10).toUpperCase();
 
-    const N8N_WEBHOOK_URL = 'https://nckutrickingautomation.zeabur.app/webhook/6d3268d7-5194-45db-b6f5-7a39fbf9322a';
+    const N8N_WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL || 'fallback_url';
 
     // Format date as YYYY-MM-DD only (no time)
     const dateOnly = selectedDate.toLocaleDateString('en-CA');
