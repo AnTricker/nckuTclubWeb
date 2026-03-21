@@ -315,11 +315,14 @@ function DateChoosePage({ onNavigate, phoneNumber, selectedLesson, selectedDate,
       date: dateOnly
     };
 
-    console.log('🚀 Submitting payload:', payload);
-    console.log('🌐 Webhook URL:', N8N_WEBHOOK_URL);
-    console.log('📱 Phone Number:', phoneNumber);
-    console.log('📚 Selected Lesson:', selectedLesson);
-    console.log('📅 Selected Date:', selectedDate);
+    const isDebug = import.meta.env.VITE_DEBUG === 'true';
+    if (isDebug) {
+      console.log('🚀 Submitting payload:', payload);
+      console.log('🌐 Webhook URL:', N8N_WEBHOOK_URL);
+      console.log('📱 Phone Number:', phoneNumber);
+      console.log('📚 Selected Lesson:', selectedLesson);
+      console.log('📅 Selected Date:', selectedDate);
+    }
 
     try {
       const response = await fetch(N8N_WEBHOOK_URL, {
@@ -330,14 +333,20 @@ function DateChoosePage({ onNavigate, phoneNumber, selectedLesson, selectedDate,
         body: JSON.stringify(payload),
       });
 
-      console.log('📨 Response status:', response.status);
-      console.log('📨 Response OK:', response.ok);
+      if (isDebug) {
+        console.log('📨 Response status:', response.status);
+        console.log('📨 Response OK:', response.ok);
+      }
       
       const responseText = await response.text();
-      console.log('📨 Response body:', responseText);
+      if (isDebug) {
+        console.log('📨 Response body:', responseText);
+      }
 
       if (response.ok) {
-        console.log("✅ 資料成功送出至 n8n!");
+        if (isDebug) {
+          console.log("✅ 資料成功送出至 n8n!");
+        }
         setSubmissionState('success');
         setTimeout(() => onNavigate('success'), 2000);
       } else {
