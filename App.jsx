@@ -87,7 +87,7 @@ function RegistrationPage({ onNavigate, isChecked, setIsChecked }) {
   return (
     <div className="w-full animate-fade-in flex flex-col items-center">
       <a 
-        href="#" 
+        href="https://tally.so/r/w4ZvdB" 
         target="_blank" 
         rel="noreferrer"
         className="text-[#0070D7] text-lg font-bold underline mb-6 inline-flex items-center"
