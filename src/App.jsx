@@ -99,14 +99,12 @@ function InitialPage({ onNavigate }) {
 function RegistrationPage({ onNavigate, isChecked, setIsChecked }) {
   return (
     <div className="w-full animate-fade-in flex flex-col items-center">
-      <a 
-        href="#" 
-        target="_blank" 
-        rel="noreferrer"
-        className="text-[#0070D7] text-lg font-bold underline mb-6 inline-flex items-center"
+      <button 
+        onClick={() => window.open('https://tally.so/r/w4ZvdB', '_blank')}
+        className="text-[#0070D7] text-lg font-bold underline mb-6 inline-flex items-center bg-none border-none cursor-pointer p-0"
       >
         <span className="mr-2">👉</span> Sign up 點我先去註冊
-      </a>
+      </button>
       
       <p className="text-sm mb-8">註冊即送兩張不限期社課課卡 (價值 100元)</p>
       
